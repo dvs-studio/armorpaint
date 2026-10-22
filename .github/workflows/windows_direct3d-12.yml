@@ -17,188 +17,68 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # 1. Check out your fork
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          submodules: recursive
 
-      # 2. Compile ArmorPaint
-      - name: Compile ArmorPaint
+      - name: Compile
         shell: bash
         run: |
           cd paint
           ../base/make --compile
 
-      # 3. Find and collect the compiled Windows files
-      - name: Collect compiled files
-        shell: pwsh
-        run: |
-          $ErrorActionPreference = "Stop"
-
-          $repoRoot = $env:GITHUB_WORKSPACE
-          $releaseDir = Join-Path $repoRoot "release"
-          $stagingDir = Join-Path $env:RUNNER_TEMP "armorpaint-release"
-
-          # Start with clean output folders.
-          if (Test-Path $releaseDir) {
-              Remove-Item $releaseDir -Recurse -Force
-          }
-
-          if (Test-Path $stagingDir) {
-              Remove-Item $stagingDir -Recurse -Force
-          }
-
-          New-Item -ItemType Directory -Path $releaseDir -Force | Out-Null
-          New-Item -ItemType Directory -Path $stagingDir -Force | Out-Null
-
-          # Search for likely Windows build output locations.
-          $searchRoots = @(
-              (Join-Path $repoRoot "paint"),
-              (Join-Path $repoRoot "build"),
-              (Join-Path $repoRoot "base")
-          )
-
-          $extensions = @(
-              ".exe",
-              ".dll",
-              ".pdb",
-              ".dat",
-              ".json"
-          )
-
-          $foundFiles = @()
-
-          foreach ($root in $searchRoots) {
-              if (Test-Path $root) {
-                  $files = Get-ChildItem -Path $root -Recurse -File |
-                      Where-Object {
-                          $extensions -contains $_.Extension.ToLowerInvariant() -and
-                          $_.FullName -notmatch '[\\/](node_modules|\.git|vendor|release)[\\/]'
-                      }
-
-                  $foundFiles += $files
-              }
-          }
-
-          # Remove duplicate file paths.
-          $foundFiles = @(
-              $foundFiles |
-              Sort-Object -Property FullName -Unique
-          )
-
-          if ($foundFiles.Count -eq 0) {
-              throw "No compiled Windows output files were found. Check the compiler output and update the search roots to match the actual build directory."
-          }
-
-          # Copy files while preserving their relative paths.
-          foreach ($file in $foundFiles) {
-              $sourceRoot = $null
-
-              foreach ($root in $searchRoots) {
-                  if (
-                      (Test-Path $root) -and
-                      $file.FullName.StartsWith(
-                          $root.TrimEnd('\') + '\',
-                          [System.StringComparison]::OrdinalIgnoreCase
-                      )
-                  ) {
-                      $sourceRoot = $root
-                      break
-                  }
-              }
-
-              if ($null -eq $sourceRoot) {
-                  continue
-              }
-
-              $relativePath = $file.FullName.Substring(
-                  $sourceRoot.TrimEnd('\').Length
-              ).TrimStart('\')
-
-              $destinationPath = Join-Path $stagingDir $relativePath
-              $destinationParent = Split-Path $destinationPath -Parent
-
-              New-Item -ItemType Directory -Path $destinationParent -Force |
-                  Out-Null
-
-              Copy-Item -LiteralPath $file.FullName -Destination $destinationPath -Force
-          }
-
-          # Ensure the package contains files.
-          $stagedFiles = @(Get-ChildItem -Path $stagingDir -Recurse -File)
-
-          if ($stagedFiles.Count -eq 0) {
-              throw "The staging folder is empty. No build files were copied."
-          }
-
-          # Copy the collected files into the repository release folder.
-          Copy-Item -Path (Join-Path $stagingDir "*") -Destination $releaseDir -Recurse -Force
-
-          # Add build information.
-          $buildInfo = @"
-          ArmorPaint Windows Build
-          Renderer: Direct3D 12
-          Repository: $env:GITHUB_REPOSITORY
-          Commit: $env:GITHUB_SHA
-          Workflow run: $env:GITHUB_RUN_ID
-
-          Note:
-          This package contains the files collected by the workflow.
-          Check that the executable and its required runtime assets are included before distributing it.
-          "@
-
-          Set-Content -Path (Join-Path $releaseDir "BUILD-INFO.txt") -Value $buildInfo
-
-          # Create a ZIP package in the release folder.
-          $zipPath = Join-Path $releaseDir "ArmorPaint-Windows-Direct3D12.zip"
-
-          Compress-Archive `
-              -Path (Join-Path $stagingDir "*") `
-              -DestinationPath $zipPath `
-              -CompressionLevel Optimal `
-              -Force
-
-          Write-Host "Collected $($stagedFiles.Count) build files."
-          Write-Host "Release folder: $releaseDir"
-          Write-Host "ZIP package: $zipPath"
-
-          Get-ChildItem -Path $releaseDir -Recurse -File |
-              Select-Object FullName, Length |
-              Format-Table -AutoSize
-
-      # 4. Upload the build as a GitHub Actions artifact
-      - name: Upload Windows build artifact
+      - name: Upload compiled result as artifact
         uses: actions/upload-artifact@v4
         with:
           name: ArmorPaint-Windows-Direct3D12
           path: |
-            release/**
+            paint/build/**
+            paint/*.exe
+            build/**
           if-no-files-found: error
           retention-days: 30
 
-      # 5. Commit the release folder to your fork's main branch.
-      # Pull requests are excluded because their source branch may not be main.
-      - name: Save release folder to main branch
+      - name: Copy compiled result into release folder
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
-          $ErrorActionPreference = "Stop"
+          set -e
+
+          mkdir -p release
+
+          # Copy the compiled output without changing the build process.
+          if [ -d paint/build ]; then
+            cp -a paint/build/. release/
+          fi
+
+          find paint -maxdepth 1 -type f -name '*.exe' -exec cp -f {} release/ \;
+
+          if [ -d build ]; then
+            cp -a build/. release/
+          fi
+
+          if [ -z "$(find release -type f -print -quit)" ]; then
+            echo "No compiled files were found in the expected output locations."
+            echo "Check the compiler output to identify its actual output directory."
+            exit 1
+          fi
+
+      - name: Commit compiled result to main branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          set -e
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add release/
 
-          $changes = git status --porcelain -- release/
+          if git diff --cached --quiet; then
+            echo "No changes to commit in release/."
+            exit 0
+          fi
 
-          if (-not $changes) {
-              Write-Host "The release folder has no changes to commit."
-              exit 0
-          }
-
-          git commit -m "Update ArmorPaint Windows Direct3D 12 build"
-
+          git commit -m "Update compiled ArmorPaint Windows build"
           git push origin HEAD:main
