@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="sources">
+			<UniqueIdentifier>{6A560BDD-277F-4000-8B64-55060B201700}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\base">
+			<UniqueIdentifier>{33417F8D-556E-4000-89AE-58B1401205A2}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint">
+			<UniqueIdentifier>{17097D03-7B34-4000-8432-62B82E115CF8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint">
+			<UniqueIdentifier>{1C5A3D20-347E-4000-8E06-1C773235373B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a">
+			<UniqueIdentifier>{291615B1-7A90-4000-8850-34A56EDC02C3}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:">
+			<UniqueIdentifier>{4ED924EC-3EA0-4000-8CE9-424E4A1260D8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\base\sources">
+			<UniqueIdentifier>{30816B08-4EA1-4000-8B39-7C7C7C016A37}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\backends">
+			<UniqueIdentifier>{35343F94-19DC-4000-8C7E-271D1AE06325}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\kong">
+			<UniqueIdentifier>{745D448C-42A5-4000-8DD9-677046045170}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\libs">
+			<UniqueIdentifier>{7E297DB6-55D2-4000-8161-7A7B758A0438}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint">
+			<UniqueIdentifier>{6FCA60B2-43D5-4000-86CB-0EF900AF5481}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins">
+			<UniqueIdentifier>{071A2A51-0017-4000-8F31-049040A06B57}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_exr">
+			<UniqueIdentifier>{542F0D9C-38AC-4000-87E6-65A5540E740F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_fbx">
+			<UniqueIdentifier>{7BCA7111-60C5-4000-8445-5E5E6CF36A87}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_fbx\ufbx">
+			<UniqueIdentifier>{36040652-3EC8-4000-8430-66CB48F35D3C}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_gltf">
+			<UniqueIdentifier>{560F58BE-1EAD-4000-829C-168D78B120CE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_psd">
+			<UniqueIdentifier>{238A360F-4A83-4000-848C-1DF4121E6FAD}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_svg">
+			<UniqueIdentifier>{274A5447-43C6-4000-8C1A-401768DF1D3B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_tiff">
+			<UniqueIdentifier>{0D3A0A78-0DC3-4000-8AC3-57521E671C8F}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/direct3d12_gpu.h">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_system.h">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_thread.h">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/ufbx/ufbx.h">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_fbx\ufbx</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_gltf/cgltf.h">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_gltf</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvg.h">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_svg</Filter>
+		</ClInclude>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvgrast.h">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_svg</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\main.c">
+			<Filter>sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\minic_api.c">
+			<Filter>sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\startup.c">
+			<Filter>sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/const_data.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/engine.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_armpack.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_array.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_audio.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_compress.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_draw.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_file.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_gpu.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_image.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_input.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_json.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_lz4.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_map.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_math.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_obj.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_path.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_physics.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_raycast.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_shape.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_string.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_system.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_tween.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui_ext.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui_nodes.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/direct3d12_gpu.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_audio.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_net.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_system.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_thread.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_websocket.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/dir.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_cstyle.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_hlsl.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_spirv.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_wgsl.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/stb_ds.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\kong</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/bc7enc.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/minic.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/minic_tests.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/nfd.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/stb_vorbis.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/untar.c">
+			<Filter>D:\a\armorpaint\armorpaint\base\sources\libs</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/plugins.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_exr/io_exr.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_exr</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/io_fbx.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_fbx</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/ufbx/ufbx.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_fbx\ufbx</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_gltf/cgltf.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_gltf</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_psd/io_psd.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_psd</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvg.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_svg</Filter>
+		</ClCompile>
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_tiff/io_tiff.c">
+			<Filter>D:\a\armorpaint\armorpaint\paint\plugins\io_tiff</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+</Project>

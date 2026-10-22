@@ -1,0 +1,2 @@
+@call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+@MSBuild.exe "D:\a\armorpaint\armorpaint\paint\build\ArmorPaint.vcxproj" /m /clp:ErrorsOnly /p:Configuration=Release,Platform=x64

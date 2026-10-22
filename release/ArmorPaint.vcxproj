@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Develop|x64">
+			<Configuration>Develop</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{38a13bee-4d0c-4000-85d0-1f966cc041c4}</ProjectGuid>
+		<VCProjectVersion>18.0</VCProjectVersion>
+		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>ClangCL</PlatformToolset>
+		<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+		<CharacterSet>Unicode</CharacterSet>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Develop'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>ClangCL</PlatformToolset>
+		<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+		<CharacterSet>Unicode</CharacterSet>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>ClangCL</PlatformToolset>
+		<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<CharacterSet>Unicode</CharacterSet>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings">
+		<Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<ImportGroup Label="PropertySheets" Condition="'$(Platform)'=='x64'">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+		<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+			<ClCompile>
+				<AdditionalIncludeDirectories>..\..\base\sources;..\..\base\sources\libs</AdditionalIncludeDirectories>
+				<AdditionalOptions>-Wno-deprecated-declarations -Wno-c23-extensions -Wno-incompatible-pointer-types -Wno-incompatible-function-pointer-types -Wno-microsoft-enum-forward-reference /bigobj %(AdditionalOptions)</AdditionalOptions>
+				<WarningLevel>Level3</WarningLevel>
+				<Optimization>Disabled</Optimization>
+				<PreprocessorDefinitions>_DEBUG;EMBED_H_PATH="D:/a/armorpaint/armorpaint/paint/build/embed.h";_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;IRON_DIRECT3D12;WITH_D3DCOMPILER;WITH_KONG;WITH_PLUGINS;UFBX_MINIMAL;UFBX_ENABLE_TRIANGULATION;UFBX_ENABLE_SCENE_EVALUATION;WITH_PHYSICS;WITH_RAYTRACE;IRON_AUDIO;WITH_EVAL;WITH_BC7;WITH_WEBSOCKET;IDLE_SLEEP;WITH_NFD;WITH_COMPRESS;WITH_IMAGE_WRITE;WITH_VIDEO_WRITE;SYS_64;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+				<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+				<MultiProcessorCompilation>true</MultiProcessorCompilation>
+				<MinimalRebuild>false</MinimalRebuild>
+				<LanguageStandard_C>stdc11</LanguageStandard_C>
+			</ClCompile>
+			<Link>
+				<SubSystem>Windows</SubSystem>
+				<GenerateDebugInformation>true</GenerateDebugInformation>
+				<AdditionalDependencies>dxguid.lib;Winhttp.lib;dxgi.lib;d3d12.lib;Dwmapi.lib;dsound.lib;d3d11.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			</Link>
+			<Manifest>
+				<EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+			</Manifest>
+		</ItemDefinitionGroup>
+		<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
+			<ClCompile>
+				<AdditionalIncludeDirectories>..\..\base\sources;..\..\base\sources\libs</AdditionalIncludeDirectories>
+				<AdditionalOptions>-Wno-deprecated-declarations -Wno-c23-extensions -Wno-incompatible-pointer-types -Wno-incompatible-function-pointer-types -Wno-microsoft-enum-forward-reference /bigobj %(AdditionalOptions)</AdditionalOptions>
+				<WarningLevel>Level3</WarningLevel>
+				<Optimization>Full</Optimization>
+				<PreprocessorDefinitions>_DEBUG;EMBED_H_PATH="D:/a/armorpaint/armorpaint/paint/build/embed.h";_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;IRON_DIRECT3D12;WITH_D3DCOMPILER;WITH_KONG;WITH_PLUGINS;UFBX_MINIMAL;UFBX_ENABLE_TRIANGULATION;UFBX_ENABLE_SCENE_EVALUATION;WITH_PHYSICS;WITH_RAYTRACE;IRON_AUDIO;WITH_EVAL;WITH_BC7;WITH_WEBSOCKET;IDLE_SLEEP;WITH_NFD;WITH_COMPRESS;WITH_IMAGE_WRITE;WITH_VIDEO_WRITE;SYS_64;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+				<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+				<MultiProcessorCompilation>true</MultiProcessorCompilation>
+				<MinimalRebuild>false</MinimalRebuild>
+				<BasicRuntimeChecks>Default</BasicRuntimeChecks>
+				<LanguageStandard_C>stdc11</LanguageStandard_C>
+			</ClCompile>
+			<Link>
+				<SubSystem>Windows</SubSystem>
+				<GenerateDebugInformation>true</GenerateDebugInformation>
+				<AdditionalDependencies>dxguid.lib;Winhttp.lib;dxgi.lib;d3d12.lib;Dwmapi.lib;dsound.lib;d3d11.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			</Link>
+			<Manifest>
+				<EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+			</Manifest>
+		</ItemDefinitionGroup>
+		<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+			<ClCompile>
+				<AdditionalIncludeDirectories>..\..\base\sources;..\..\base\sources\libs</AdditionalIncludeDirectories>
+				<AdditionalOptions>-Wno-deprecated-declarations -Wno-c23-extensions -Wno-incompatible-pointer-types -Wno-incompatible-function-pointer-types -Wno-microsoft-enum-forward-reference /bigobj /Gw /clang:-fno-unroll-loops %(AdditionalOptions)</AdditionalOptions>
+				<WarningLevel>Level3</WarningLevel>
+				<Optimization>MaxSpeed</Optimization>
+				<FunctionLevelLinking>true</FunctionLevelLinking>
+				<IntrinsicFunctions>true</IntrinsicFunctions>
+				<DebugInformationFormat>None</DebugInformationFormat>
+				<PreprocessorDefinitions>NDEBUG;EMBED_H_PATH="D:/a/armorpaint/armorpaint/paint/build/embed.h";_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;IRON_DIRECT3D12;WITH_D3DCOMPILER;WITH_KONG;WITH_PLUGINS;UFBX_MINIMAL;UFBX_ENABLE_TRIANGULATION;UFBX_ENABLE_SCENE_EVALUATION;WITH_PHYSICS;WITH_RAYTRACE;IRON_AUDIO;WITH_EVAL;WITH_BC7;WITH_WEBSOCKET;IDLE_SLEEP;WITH_NFD;WITH_COMPRESS;WITH_IMAGE_WRITE;WITH_VIDEO_WRITE;SYS_64;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+				<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+				<MultiProcessorCompilation>true</MultiProcessorCompilation>
+				<MinimalRebuild>false</MinimalRebuild>
+				<LanguageStandard_C>stdc11</LanguageStandard_C>
+			</ClCompile>
+			<Link>
+				<SubSystem>Windows</SubSystem>
+				<GenerateDebugInformation>false</GenerateDebugInformation>
+				<EnableCOMDATFolding>true</EnableCOMDATFolding>
+				<OptimizeReferences>true</OptimizeReferences>
+				<AdditionalDependencies>dxguid.lib;Winhttp.lib;dxgi.lib;d3d12.lib;Dwmapi.lib;dsound.lib;d3d11.lib;d3dcompiler.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			</Link>
+			<Manifest>
+				<EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+			</Manifest>
+		</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/direct3d12_gpu.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_system.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_thread.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/ufbx/ufbx.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_gltf/cgltf.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvg.h" />
+		<ClInclude Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvgrast.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\main.c" />
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\minic_api.c" />
+		<ClCompile Include="D:\a\armorpaint\armorpaint\paint\sources\startup.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/const_data.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/engine.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_armpack.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_array.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_audio.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_compress.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_draw.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_file.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_gpu.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_image.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_input.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_json.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_lz4.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_map.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_math.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_obj.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_path.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_physics.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_raycast.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_shape.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_string.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_system.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_tween.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui_ext.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/iron_ui_nodes.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/direct3d12_gpu.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_audio.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_net.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_system.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_thread.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/backends/windows_websocket.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/dir.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_cstyle.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_hlsl.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_spirv.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/kong_wgsl.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/kong/stb_ds.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/bc7enc.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/minic.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/minic_tests.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/nfd.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/stb_vorbis.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/base/sources/libs/untar.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/plugins.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_exr/io_exr.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/io_fbx.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_fbx/ufbx/ufbx.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_gltf/cgltf.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_psd/io_psd.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_svg/nanosvg.c" />
+		<ClCompile Include="D:/a/armorpaint/armorpaint/paint/plugins/io_tiff/io_tiff.c" />
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
+</ItemGroup>
+	<ItemGroup>
+		<None Include="icon.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="resources.rc" />
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ImportGroup Label="ExtensionTargets">
+		<Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets"/>
+	</ImportGroup>
+</Project>
