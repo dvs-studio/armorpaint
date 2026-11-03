@@ -1,0 +1,90 @@
+name: WASM (WebGPU / WebGL)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Clang 19+ (required for C23 #embed)
+        run: |
+          # Ensure a recent enough Clang that supports #embed
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 19
+          sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 100
+          sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100
+          clang --version
+
+      - name: Compile WASM
+        run: |
+          cd paint
+          ../base/make --target wasm --compile --embed
+
+      - name: Upload compiled result as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ArmorPaint-WASM-WebGPU
+          path: |
+            paint/build/**
+            build/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Copy compiled result into release folder
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          set -e
+          mkdir -p release
+
+          # Copy the compiled WASM output
+          if [ -d paint/build ]; then
+            cp -a paint/build/. release/
+          fi
+          if [ -d build ]; then
+            cp -a build/. release/
+          fi
+
+          # Also grab any top-level generated files that might be useful for self-hosting
+          find . -maxdepth 2 -type f \( -name '*.wasm' -o -name 'start.js' -o -name 'index.html' -o -name 'manifest.json' -o -name 'sw.js' -o -name 'favicon.ico' -o -name 'icon.png' \) -exec cp -f {} release/ \; 2>/dev/null || true
+
+          if [ -z "$(find release -type f -print -quit)" ]; then
+            echo "No compiled files were found in the expected output locations."
+            echo "Check the compiler output to identify its actual output directory."
+            ls -la paint/build/ || true
+            ls -la build/ || true
+            exit 1
+          fi
+
+          echo "Contents of release/:"
+          find release -type f | head -50
+
+      - name: Commit compiled result to main branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add release/
+          if git diff --cached --quiet; then
+            echo "No changes to commit in release/."
+            exit 0
+          fi
+          git commit -m "Update compiled ArmorPaint WASM (WebGPU) build"
+          git push origin HEAD:main
