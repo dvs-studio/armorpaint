@@ -2,61 +2,61 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemGroup>
 		<Filter Include="sources">
-			<UniqueIdentifier>{24A600F3-303E-4000-8CFC-515105527441}</UniqueIdentifier>
+			<UniqueIdentifier>{25A671EF-3A77-4000-8B6B-40D74FE95C1E}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\base">
-			<UniqueIdentifier>{2CCA40A2-2472-4000-83E7-4A0D5A7C0F3E}</UniqueIdentifier>
+			<UniqueIdentifier>{64F17517-6BF4-4000-8BDF-6F4C29680419}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint">
-			<UniqueIdentifier>{42B7673D-6046-4000-870F-4BFC248F6B33}</UniqueIdentifier>
+			<UniqueIdentifier>{66680004-6A84-4000-8A39-3DEB791658C4}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint">
-			<UniqueIdentifier>{42D92322-4EC8-4000-8FC7-44A71362204F}</UniqueIdentifier>
+			<UniqueIdentifier>{7A5C371E-31E9-4000-8D40-3B4507871C83}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a">
-			<UniqueIdentifier>{3A976344-12A2-4000-8887-5A502C3B7B96}</UniqueIdentifier>
+			<UniqueIdentifier>{1A382D4A-48F6-4000-8AFD-0AB36B625653}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:">
-			<UniqueIdentifier>{5D5B2AFA-0202-4000-832C-5B1B567E5A73}</UniqueIdentifier>
+			<UniqueIdentifier>{69340565-0280-4000-8599-7EC236D6631F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\base\sources">
-			<UniqueIdentifier>{3D271686-5E66-4000-817B-0409652842E5}</UniqueIdentifier>
+			<UniqueIdentifier>{03230D2D-66C1-4000-811E-52275E5D5CBA}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\backends">
-			<UniqueIdentifier>{74165837-7FE6-4000-8B17-277B6A5823D7}</UniqueIdentifier>
+			<UniqueIdentifier>{05CF3680-1754-4000-8814-784B4BB06319}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\kong">
-			<UniqueIdentifier>{02895093-44FE-4000-8555-7FFC7FB00988}</UniqueIdentifier>
+			<UniqueIdentifier>{7F020008-4D25-4000-89F5-68FC45AD53BB}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\base\sources\libs">
-			<UniqueIdentifier>{19544966-247C-4000-8447-38F3093A4E30}</UniqueIdentifier>
+			<UniqueIdentifier>{08E22865-3624-4000-8C83-7D41376A6BF1}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint">
-			<UniqueIdentifier>{6BDF6351-08E9-4000-8C06-1FF001A264A9}</UniqueIdentifier>
+			<UniqueIdentifier>{4CC378CB-6C2D-4000-82C3-273D11CA5823}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins">
-			<UniqueIdentifier>{51F07AF6-5182-4000-8C75-458A6B6E1988}</UniqueIdentifier>
+			<UniqueIdentifier>{494966B4-4389-4000-86BA-054711AD7309}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_exr">
-			<UniqueIdentifier>{1655174D-483B-4000-8C1F-25DF2C065447}</UniqueIdentifier>
+			<UniqueIdentifier>{2F403DE9-5B73-4000-8BF5-6E004057265D}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_fbx">
-			<UniqueIdentifier>{4C916CFE-1A87-4000-856D-4A6549F2019D}</UniqueIdentifier>
+			<UniqueIdentifier>{29D858AE-5289-4000-8B53-018E6205485D}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_fbx\ufbx">
-			<UniqueIdentifier>{729766EB-4698-4000-8A42-0D2319157CEC}</UniqueIdentifier>
+			<UniqueIdentifier>{1A8F7EF9-40AE-4000-8EE7-09A10AF50D64}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_gltf">
-			<UniqueIdentifier>{7A13098C-0388-4000-84CC-3A045B4630F3}</UniqueIdentifier>
+			<UniqueIdentifier>{420842B6-2D8D-4000-8C56-20426919006F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_psd">
-			<UniqueIdentifier>{2EFF7552-67E9-4000-8AA0-117514B95592}</UniqueIdentifier>
+			<UniqueIdentifier>{25CC70CA-26FA-4000-859D-520E6FDF186F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_svg">
-			<UniqueIdentifier>{5D4928D0-19E8-4000-8886-002C53245F32}</UniqueIdentifier>
+			<UniqueIdentifier>{16667C82-155B-4000-87B8-5E9522144988}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="D:\a\armorpaint\armorpaint\paint\plugins\io_tiff">
-			<UniqueIdentifier>{04197261-27FB-4000-8F86-62CF426C719D}</UniqueIdentifier>
+			<UniqueIdentifier>{7EC717E8-2EDA-4000-8C34-720039C35EF8}</UniqueIdentifier>
 		</Filter>
 	</ItemGroup>
 	<ItemGroup>
