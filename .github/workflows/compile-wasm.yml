@@ -18,14 +18,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fix missing copysignf declaration
+      - name: Fix missing declarations for WASM / miniclib
         run: |
-          # ArmorPaint's startup.c uses copysignf without including <math.h>
-          # under the WASM / miniclib path. Add a quick declaration.
+          # copysignf is missing in startup.c
           sed -i '1i\
-          #ifndef copysignf\
-          float copysignf(float x, float y);\
-          #endif' paint/sources/startup.c
+#ifndef copysignf\
+float copysignf(float x, float y);\
+#endif' paint/sources/startup.c
+
+          # atoi is missing from miniclib/stdlib.h
+          sed -i '/atof/a\
+int atoi(const char *str);' base/sources/miniclib/stdlib.h
 
       - name: Compile
         run: |
