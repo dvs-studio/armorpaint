@@ -9,9 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,50 +41,3 @@ int atoi(const char *str);' base/sources/miniclib/stdlib.h
             build/**
           if-no-files-found: error
           retention-days: 30
-
-      - name: Copy compiled result into release folder
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -e
-          mkdir -p release
-
-          if [ -d paint/build ]; then
-            cp -a paint/build/. release/
-          fi
-          if [ -d build ]; then
-            cp -a build/. release/
-          fi
-
-          find . -maxdepth 2 -type f \( \
-            -name '*.wasm' -o -name 'start.js' -o -name 'index.html' \
-            -o -name 'manifest.json' -o -name 'sw.js' \
-            -o -name 'favicon.ico' -o -name 'icon.png' \
-          \) -exec cp -f {} release/ \; 2>/dev/null || true
-
-          if [ -z "$(find release -type f -print -quit)" ]; then
-            echo "No compiled files found."
-            ls -la paint/build/ 2>/dev/null || true
-            ls -la build/ 2>/dev/null || true
-            exit 1
-          fi
-
-      - name: Commit compiled result to main branch
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add release/
-          if git diff --cached --quiet; then
-            echo "No changes to commit in release/."
-            exit 0
-          fi
-
-          git commit -m "Update compiled ArmorPaint WASM build"
-
-          # Pull any new commits that happened while we were building, then push
-          git pull --rebase origin main
-          git push origin HEAD:main
