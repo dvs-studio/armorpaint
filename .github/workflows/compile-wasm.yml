@@ -18,6 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Fix missing copysignf declaration
+        run: |
+          # ArmorPaint's startup.c uses copysignf without including <math.h>
+          # under the WASM / miniclib path. Add a quick declaration.
+          sed -i '1i\
+          #ifndef copysignf\
+          float copysignf(float x, float y);\
+          #endif' paint/sources/startup.c
+
       - name: Compile
         run: |
           cd paint
