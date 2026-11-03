@@ -17,15 +17,11 @@ jobs:
 
       - name: Fix missing declarations for WASM / miniclib
         run: |
-          # copysignf is missing in startup.c
-          sed -i '1i\
-#ifndef copysignf\
-float copysignf(float x, float y);\
-#endif' paint/sources/startup.c
+          # Fix missing copysignf
+          sed -i '1i #ifndef copysignf\nfloat copysignf(float x, float y);\n#endif' paint/sources/startup.c
 
-          # atoi is missing from miniclib/stdlib.h
-          sed -i '/atof/a\
-int atoi(const char *str);' base/sources/miniclib/stdlib.h
+          # Fix missing atoi
+          sed -i '/atof/a int atoi(const char *str);' base/sources/miniclib/stdlib.h
 
       - name: Compile
         run: |
